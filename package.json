@@ -1,0 +1,15 @@
+{
+  "name": "game-of-life-ts",
+  "version": "0.1.0",
+  "description": "Game of life in TypeScript, runs in node (prints to console) or browser (prints to canvas)",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Boyang <wangboyang1991@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axel": "^0.0.3",
+    "winston": "^3.2.1"
+  }
+}
