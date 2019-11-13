@@ -4,7 +4,8 @@
   "description": "Game of life in TypeScript, runs in node (prints to console) or browser (prints to canvas)",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest"
+    "dev": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "Boyang <wangboyang1991@gmail.com>",
   "license": "MIT",
