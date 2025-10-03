@@ -14,9 +14,6 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    contentBase: './dist',
-  },
   resolve: {
     extensions: [ '.ts', '.js' ],
   },
@@ -25,9 +22,16 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     compress: true,
-    port: 9000
+    port: 5000,
+    host: '0.0.0.0',
+    allowedHosts: 'all',
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+    },
   },
   plugins: [new HtmlWebpackPlugin({
     template: path.join(__dirname, 'src/index.ejs')
