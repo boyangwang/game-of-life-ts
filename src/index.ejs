@@ -3,9 +3,124 @@
   <head>
     <meta charset="utf-8">
     <title>Game of Life TS</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: #f5f5f5;
+        margin: 0;
+      }
+
+      #game-of-life-dashboard {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      #game-of-life-canvas {
+        border: 2px solid #333;
+        background-color: white;
+        cursor: crosshair;
+        margin-bottom: 20px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background-color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        flex-wrap: wrap;
+        max-width: 600px;
+        justify-content: center;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+        color: white;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      #play-pause-btn {
+        background-color: #4CAF50;
+        min-width: 80px;
+      }
+
+      #play-pause-btn:hover {
+        background-color: #45a049;
+      }
+
+      #step-btn {
+        background-color: #2196F3;
+      }
+
+      #step-btn:hover {
+        background-color: #0b7dda;
+      }
+
+      #restart-btn {
+        background-color: #f44336;
+      }
+
+      #restart-btn:hover {
+        background-color: #da190b;
+      }
+
+      .speed-control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .speed-control label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+      }
+
+      #speed-slider {
+        width: 150px;
+        cursor: pointer;
+      }
+
+      #speed-value {
+        font-size: 14px;
+        color: #666;
+        min-width: 60px;
+      }
+    </style>
   </head>
   <body>
-    <div id="game-of-life-dashboard" width="600"></div>
-    <canvas id="game-of-life-canvas" width="600" height="600" style="border: 1px"></canvas>
+    <div id="game-of-life-dashboard"></div>
+    <canvas id="game-of-life-canvas" width="600" height="600"></canvas>
+    <div class="controls">
+      <button id="play-pause-btn">Play</button>
+      <button id="step-btn">Step</button>
+      <button id="restart-btn">Restart</button>
+      <div class="speed-control">
+        <label for="speed-slider">Speed:</label>
+        <input type="range" id="speed-slider" min="50" max="2000" value="200" step="50">
+        <span id="speed-value">200ms</span>
+      </div>
+    </div>
   </body>
 </html>
