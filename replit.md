@@ -1,14 +1,30 @@
 # Game of Life TypeScript
 
 ## Overview
-Conway's Game of Life implementation in TypeScript that runs in the browser using HTML5 Canvas. The simulation starts with a rectangular block of live cells and evolves according to the classic Game of Life rules.
+Interactive Conway's Game of Life implementation in TypeScript that runs in the browser using HTML5 Canvas. Features full user controls for creating custom patterns, playing/pausing the simulation, stepping through iterations, adjusting speed, and restarting.
 
 ## Project Architecture
 - **Frontend**: TypeScript with Webpack 5 dev server
 - **Build System**: Webpack 5 with TypeScript transpilation
 - **Port**: 5000 (configured for Replit environment)
 
+## Features
+- **Interactive Canvas**: Click and drag to draw custom cell patterns
+- **Play/Pause Control**: Start and stop the simulation
+- **Step Mode**: Advance one iteration at a time
+- **Speed Control**: Adjust animation speed from 50ms to 2000ms
+- **Restart**: Return to your custom initial pattern
+- **Live Dashboard**: Shows iteration count, live cells, speed, and state
+
 ## Recent Changes (October 3, 2025)
+- **Enhanced with interactive controls** (latest):
+  - Added Play/Pause button with state indicator
+  - Implemented Step button for single-iteration advancement
+  - Added Restart button that preserves custom patterns
+  - Created speed slider (50-2000ms range)
+  - Implemented click-to-draw pattern editing on canvas
+  - Application starts paused for pattern customization
+  - Enhanced dashboard with speed and state display
 - Imported from GitHub repository
 - Upgraded dependencies from Webpack 4 to Webpack 5 for Node.js 20 compatibility
 - Updated webpack.config.js for Replit environment:
@@ -33,13 +49,17 @@ Conway's Game of Life implementation in TypeScript that runs in the browser usin
 - `tsconfig.json` - TypeScript configuration
 
 ## How It Works
-1. Initializes a 600x600 grid with a rectangular block of live cells
-2. Applies Conway's Game of Life rules each iteration:
+1. Application starts in paused mode with a default rectangular pattern
+2. Users can click/drag on the canvas to create custom cell patterns
+3. Click "Play" to start the simulation (saves pattern as initial state)
+4. Conway's Game of Life rules apply each iteration:
    - Cell with 2 neighbors: stays in current state
    - Cell with 3 neighbors: becomes/stays alive
    - Otherwise: dies/stays dead
-3. Updates the canvas visualization with color mutations
-4. Displays iteration count and live cell count
+5. Canvas visualization updates with color mutations over time
+6. "Step" button advances one iteration while paused
+7. "Restart" button returns to the saved initial pattern
+8. Speed slider controls animation delay (50ms-2000ms)
 
 ## Development
 - Run: `npm run dev` (starts dev server on port 5000)
